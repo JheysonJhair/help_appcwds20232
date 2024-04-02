@@ -1,0 +1,57 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>DNI</th>
+      <th>Usuario</th>
+      <th>Nombre completo</th>
+      <th>Fecha de nacimiento</th>
+      <th>Género</th>
+      <th>Fecha registro</th>
+      <th>Fecha modificación</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let value of listUser">
+      <td>{{ value.dni }}</td>
+      <td>{{ value.username }}</td>
+      <td>{{ value.firstName + " " + value.surName }}</td>
+      <td>{{ value.birthDate | date : "dd/MM/yyyy" }}</td>
+      <td>{{ value.gender ? "Masculino" : "Femenino" }}</td>
+      <td>{{ value.registerDate | date : "dd/MM/yyyy" }}</td>
+      <td>{{ value.modificationDate | date : "dd/MM/yyyy" }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-danger btn-sm"
+          (click)="delete(value.idUser)"
+        >
+          Eliminar
+        </button>
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-info btn-sm"
+          (click)="openModal(value.idUser)"
+        >
+          Ver
+        </button>
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-warning btn-sm"
+          (click)="edit(value.idUser)"
+        >
+          Editar
+        </button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+<app-modal></app-modal>
+<user-edit></user-edit>

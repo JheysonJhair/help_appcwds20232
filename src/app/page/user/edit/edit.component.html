@@ -1,0 +1,110 @@
+<div
+  #editar
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar usuario</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3" (ngSubmit)="submitForm()">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="dni" class="col-form-label">DNI:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="dni"
+                [(ngModel)]="dni"
+                name="dni"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="username" class="col-form-label"
+                >Nombre de usuario:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                [(ngModel)]="username"
+                name="username"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="firstName" class="col-form-label">Nombre:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                [(ngModel)]="firstName"
+                name="firstName"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="surName" class="col-form-label">Apellido:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="surName"
+                [(ngModel)]="surName"
+                name="surName"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="birthdate" class="col-form-label">Fecha de Nacimiento:</label>
+              <input
+                type="date"
+                class="form-control"
+                id="birthdate"
+                [(ngModel)]="formattedBirthDate"
+                name="birthdate"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="col-form-label">Contraseña:</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                [(ngModel)]="password"
+                name="password"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="gender" class="col-form-label">Género:</label>
+              <select
+                class="form-select"
+                id="gender"
+                [(ngModel)]="gender"
+                name="gender"
+              >
+                <option [value]="true">Masculino</option>
+                <option [value]="false">Femenino</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button (click)="submitForm()"  class="btn btn-primary">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
