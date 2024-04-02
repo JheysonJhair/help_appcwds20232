@@ -11,22 +11,25 @@ export class ModalComponent {
   dni: string = '';
   username: string = '';
   firstName: string = '';
-  birthDate: string = '';
-  gender: string = '';
   surName: string = '';
+  gender: string = '';
+  birthDate: string = '';
+
 
   openModal(
     dni: string,
     username: string,
     firstName: string,
+    surName: string,
     gender: string,
-    surName: string
+    birthDate: any
   ) {
     this.dni = dni;
     this.username = username;
     this.firstName = firstName;
     this.gender = gender;
     this.surName = surName;
+    this.birthDate = birthDate;
     $(this.modal?.nativeElement).modal('show');
   }
 

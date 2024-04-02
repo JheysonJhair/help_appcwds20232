@@ -22,6 +22,7 @@
         <p><strong>Usuario:</strong> {{ username }}</p>
         <p><strong>Nombre completo:</strong> {{ firstName }} {{ surName }}</p>
         <p><strong>Género:</strong> {{ gender ? "Masculino" : "Femenino" }}</p>
+        <p><strong>Cumpleaños:</strong> {{ birthDate  | date : "dd/MM/yyyy" }}</p>
       </div>
     </div>
   </div>

@@ -86,13 +86,13 @@ export class UserGetAllComponent {
   openModal(userId: string) {
     this.userService.getByPk(userId).subscribe((userData: any) => {
       this.userData = userData.dtoUser;
-      console.log(this.userData);
       this.modal?.openModal(
         this.userData.dni,
         this.userData.username,
         this.userData.firstName,
+        this.userData.surName,
         this.userData.gender,
-        this.userData.surName
+        this.userData.birthDate ,
       );
     });
   }

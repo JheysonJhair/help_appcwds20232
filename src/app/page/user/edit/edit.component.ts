@@ -57,7 +57,7 @@ export class EditComponent {
   }
 
   submitForm() {
-    console.log("hola")
+
     const formData = new FormData();
     formData.append('dtoUser.idUser', this.idUser);
     formData.append('dtoUser.dni', this.dni);
