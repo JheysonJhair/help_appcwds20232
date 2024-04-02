@@ -15,7 +15,6 @@ export class ModalComponent {
   gender: string = '';
   birthDate: string = '';
 
-
   openModal(
     dni: string,
     username: string,

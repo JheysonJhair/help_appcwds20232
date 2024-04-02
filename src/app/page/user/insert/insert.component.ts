@@ -61,18 +61,39 @@ export class UserInsertComponent {
 
     this.userService.insert(formData).subscribe({
       next: (response: any) => {
-        this.message = response.mo.listMesasage;
+        this.message = response.mo.listMessage[0];
         this.messageType = response.mo.type;
-        Swal.fire({
-          position: 'top-end',
-          title: "Se registro el usuario correctamente",
-          text: 'Todo correcto',
-          icon: 'success',
-          confirmButtonText: 'Aceptar',
-        });
-        setTimeout(() => {
-          location.reload();
-        }, 1500);
+        console.log(this.message)
+        if(this.message == "El usuario ya existe (Nombre de usuario existente)"){
+          Swal.fire({
+            position: 'top-end',
+            title: this.message,
+            text: 'Usuario repetido',
+            icon: 'error',
+            confirmButtonText: 'Aceptar',
+          });
+
+        }else if(this.message == "El usuario ya existe (DNI existente)"){
+          Swal.fire({
+            position: 'top-end',
+            title: this.message,
+            text: 'Usuario con el mismo dni',
+            icon: 'error',
+            confirmButtonText: 'Aceptar',
+          });
+        }else{
+          Swal.fire({
+            position: 'top-end',
+            title: this.message,
+            text: 'Todo correcto',
+            icon: 'success',
+            confirmButtonText: 'Aceptar',
+          });
+        }
+         setTimeout(() => {
+           location.reload();
+         }, 1500);
+
       },
       error: (error: any) => {
         console.log(error);
